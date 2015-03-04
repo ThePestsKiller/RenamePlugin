@@ -78,29 +78,28 @@ public class Rename extends JavaPlugin {
 							//				getConfig().getString(
 							//						"rename complete")));
 						} else {
-							player.sendMessage(ChatColor.RED + "Item in hand is not a diamond pickaxe!!!");
+							player.sendMessage(getConfig().getString("no_diamond_message").replace('&', '§');//You can set the message in the config from no_diamond_message:, color codes are supported 
 							//String error4 = getConfig().getString(
 								//	"item in hand is not a diamond pickaxe");
 						//	player.sendMessage(ChatColor
 							//		.translateAlternateColorCodes('&', error4));
 						}
 					} else {
-						player.sendMessage(ChatColor.RED
-								+ "The Item in hand is air.");
+						player.sendMessage(getConfig().getString("item_in_hand_is_not_a_diamond_pickaxe").replace('&', '§');
 						//String error3 = getConfig().getString(
 						//		"item in hand is air");
 						//player.sendMessage(ChatColor
 						//		.translateAlternateColorCodes('&', error3));
 					}
 				} else {
-					player.sendMessage(ChatColor.RED + "Please put one only one word. Like this: /rename &b&lTest");
+					player.sendMessage(getConfig().getString("not_enough_too_many_args").replace('&', '§');
 					//String error2 = getConfig().getString(
 					//		"not enough or too many args");
 					//player.sendMessage(ChatColor.translateAlternateColorCodes(
 					//		'&', error2));
 				}
 			} else {
-				player.sendMessage(ChatColor.RED + "You don't have permission.");
+				player.sendMessage((getConfig().getString("no_permission").replace('&', '§');
 				//String error1 = getConfig().getString("no permission");
 				//player.sendMessage(ChatColor.translateAlternateColorCodes('&',
 				//		error1));
@@ -122,15 +121,14 @@ public class Rename extends JavaPlugin {
 						pi2.removeItem(inHand2);
 						pi2.setItemInHand(newitem2);
 						this.logger.info(player.getName()
-								+ " renamed a(n) item to: " + coloredText2);
-						player.sendMessage(ChatColor.GREEN + "Item renamed.");
+								+ (getConfig().getString("your_msg").replace('&', '§') + coloredText2); //if this line doesn't work, place a ',' example: ("&", "§"), 
+						player.sendMessage(getConfig().getString("rename_complete").replace('&', '§');
 
 					} else {
-						player.sendMessage(ChatColor.RED
-								+ "The Item in hand is air.");
+						player.sendMessage(getConfig().getString("item_in_hand_is_air").replace('&', '§');
 					}
 				} else {
-					player.sendMessage(ChatColor.RED + "Please put one only one word. Like this: /renameany &b&lTest");
+					player.sendMessage(getConfig().getString("not_enough_or_too_many_args").replace('&', '§');
 					//String error2 = getConfig().getString(
 					//		"not_enough_or_too_many_args");
 
@@ -138,7 +136,7 @@ public class Rename extends JavaPlugin {
 					//		'&', error2));
 				}
 			} else {
-				player.sendMessage(ChatColor.RED + "You don't have permission.");
+				player.sendMessage(getConfig().getString("no_permission").replace('&', '§');
 				//String error1 = getConfig().getString("no_permission");
 
 				//player.sendMessage(ChatColor.translateAlternateColorCodes('&',
@@ -160,15 +158,15 @@ public class Rename extends JavaPlugin {
 						im.setLore(lore);
 						is.setItemMeta(im);
 						player.setItemInHand(is);		
-						player.sendMessage(ChatColor.GREEN + "Item Relored");
+						player.sendMessage(getConfig().getString("item_relored").replace('&', '§');
 					} else {
-						player.sendMessage(ChatColor.RED + "Please put at least one word after /lore");
+						player.sendMessage(getConfig().getString("not_enough_or_too_many_args").replace('&', '§');
 					}
 				} else {
-					player.sendMessage(ChatColor.RED + "Item in hand is air.");
+					player.sendMessage(getConfig().getString("item_in_hand_is_air").replace('&', '§');
 				}
 			} else {
-				player.sendMessage(ChatColor.RED + "You don't have permission.");
+				player.sendMessage(getConfig().getString("no_permission").replace('&', '§');
 			}
 		}
 		return false;
